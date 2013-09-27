@@ -1,0 +1,2 @@
+# maxkanji
+### a Sails application
