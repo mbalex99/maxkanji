@@ -48,14 +48,15 @@ module.exports = function (grunt) {
 
     // Bring in the socket.io client
     'linker/js/socket.io.js',
-
     // then beef it up with some convenience logic for talking to Sails.js
     'linker/js/sails.io.js',
-
     // A simpler boilerplate library for getting you up and running w/ an
     // automatic listener for incoming messages from Socket.io.
     'linker/js/app.js',
+	  'linker/js/jquery-1.10.2.js',
 
+	  'linker/js/angular.js',
+	  'linker/js/angular-route.js',
     // *->    put other dependencies here   <-*
 
     // All of the rest of your app scripts imported here
