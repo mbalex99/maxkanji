@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-md-12">
+        <input type="checkbox" ng-model="isEditing"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-primary well">
+            <div class="panel-body " style="text-align: center;">
+                <input type="text" style="font-size: 200px; width: 100%; text-align:center;" size="1"  ng-model="character"/ ng-hide="!isEditing">
+                <span style="font-size: 200px;" ng-hide="isEditing">{{character}}</span>
+            </div>
+            <!-- List group -->
+            <ul class="list-group">
+                <li class="list-group-item">Meaning: <input type="text" ng-model="meaning" ng-hide="!isEditing"/> <span ng-hide="isEditing">{{meaning}}</span> </li>
+                <li class="list-group-item">音読み: <input type="text" ng-model="onYomi" ng-hide="!isEditing"/>  <span ng-hide="isEditing">{{onYomi}}</span> </li>
+                <li class="list-group-item">訓読み: <input type="text" ng-model="kunYomi"ng-hide="!isEditing"/> <span ng-hide="isEditing">{{kunYomi}}</span> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                単語
+            </div>
+            <!-- List group -->
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Kana</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="vocab in vocabs">
+                        <td></td>
+                        <td>
+                            <input type="text" ng-model="vocab.value" ng-hide="!isEditing"/>
+                            <span ng-hide="isEditing">{{vocab.value}}</span>
+                        </td>
+                        <td>
+                            <input type="text" ng-model="vocab.value" ng-hide="!isEditing"/>
+                            <span ng-hide="isEditing">{{vocab.kana}}</span>
+                        </td>
+                        <td>
+                            <input type="text" ng-model="vocab.meaning" ng-hide="!isEditing"/>
+                            <span ng-hide="isEditing">{{vocab.meaning}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" ng-click="createNewVocab()" class="btn btn-primary btn-xs">Extra small button</button>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                例文 Example Sentences and Phrases
+            </div>
+
+            <!-- List group -->
+            <ul class="list-group">
+                <li ng-repeat="phrase in phrases" class="list-group-item">
+                    <input type="text" ng-hide="isEditing" ng-model="phrase.value"/>
+                    <input type="text" ng-hide="isEditing" ng-model="phrase.meaning"/>
+                    {{phrase.value}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12"></div>
+</div>

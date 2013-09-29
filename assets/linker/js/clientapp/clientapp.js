@@ -20,5 +20,6 @@ angular.module('clientApp',
 	.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'})
-			.when('/character/:characterId', {templateUrl: 'partials/character-detail.html', controller: 'CharacterDetailCtrl'});
+			.when('/kanji/:kanjiId', {templateUrl: 'partials/kanji-details.html', controller: 'KanjiDetailsCtrl'})
+			.when('/kanji/:kanjiId/edit', {templateUrl: 'partials/kanji-edit.html', controller: 'KanjiDetailsCtrl'});
 	}]);
