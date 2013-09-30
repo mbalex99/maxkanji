@@ -7,7 +7,7 @@ ClientApp.Services.factory('kanjiService', ['$q', '$http', function(){
 			deferred.resolve(data);
 		}).error(function(data){
 			deferred.reject(data);
-		})
+		});
 
 		return deferred.promise;
 	};
@@ -19,15 +19,31 @@ ClientApp.Services.factory('kanjiService', ['$q', '$http', function(){
 			deferred.resolve(data);
 		}).error(function(data){
 			deferred.reject(data);
-		})
+		});
 
 		return deferred.promise;
 	};
 
-	var saveKanji = function(payload){
+	var saveKanji = function(kanjiId, payload){
 		var deferred = $q.defer();
 
-		$http({method: 'PUT', url: 'kanji'})
+		$http({method: 'PUT', url: '/kanjis/' + kanjiId, data: payload}).success(function(data){
+			deferred.resolve(data);
+		}).error(function(data){
+			deferred.reject(data);
+		});
+
+		return deferred.promise;
+	}
+
+	var deleteKanji = function(kanjiId){
+		var deferred  = $q.defer();
+
+		$http({method: 'DELETE', url: '/kanjis/' + kanjiId}).success(function(data){
+			deferred.resolve(data);
+		}).error(function(data){
+			deferred.reject(data);
+		})
 
 		return deferred.promise;
 	}
@@ -35,6 +51,7 @@ ClientApp.Services.factory('kanjiService', ['$q', '$http', function(){
 	return {
 		queryKanji: queryKanji,
 		getKanjiById: getKanjiById,
-		saveKanji: saveKanji
+		saveKanji: saveKanji,
+		deleteKanji: deleteKanji
 	};
 }]);

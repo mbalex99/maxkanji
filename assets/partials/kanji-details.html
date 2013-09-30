@@ -1,6 +1,5 @@
 <div class="row">
     <div class="col-md-12">
-        <input type="checkbox" ng-model="isEditing"/>
     </div>
 </div>
 <div class="row">
@@ -16,12 +15,16 @@
                 <li class="list-group-item">音読み: <input type="text" ng-model="onYomi" ng-hide="!isEditing"/>  <span ng-hide="isEditing">{{onYomi}}</span> </li>
                 <li class="list-group-item">訓読み: <input type="text" ng-model="kunYomi"ng-hide="!isEditing"/> <span ng-hide="isEditing">{{kunYomi}}</span> </li>
             </ul>
+            <a class="btn btn-success btn-sm" ng-hide="!isEditing" ng-click="saveChanges()"><i class="icon-save"></i>&nbsp;Save Changes</a>
+            <a class="btn bnt-default btn-sm" ng-hide="isEditing" ng-click="beginEditing()"><i class="icon-pencil"></i>&nbsp;Edit</a>
+            <br/>
         </div>
     </div>
     <div class="col-md-8">
         <div class="panel panel-success">
             <div class="panel-heading">
                 単語
+                <a ng-click="createNewVocab()" ng-hide="!isEditing" class="btn btn-primary btn-xs pull-right"><i class="icon-plus"></i> Add new vocab</a>    
             </div>
             <!-- List group -->
 
@@ -36,13 +39,15 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="vocab in vocabs">
-                        <td></td>
+                        <td>
+                            <a ng-click="removeVocab($index)"><i class="icon-remove"/> </a>
+                        </td>
                         <td>
                             <input type="text" ng-model="vocab.value" ng-hide="!isEditing"/>
                             <span ng-hide="isEditing">{{vocab.value}}</span>
                         </td>
                         <td>
-                            <input type="text" ng-model="vocab.value" ng-hide="!isEditing"/>
+                            <input type="text" ng-model="vocab.kana" ng-hide="!isEditing"/>
                             <span ng-hide="isEditing">{{vocab.kana}}</span>
                         </td>
                         <td>
@@ -52,21 +57,39 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="button" ng-click="createNewVocab()" class="btn btn-primary btn-xs">Extra small button</button>
         </div>
         <div class="panel panel-info">
             <div class="panel-heading">
                 例文 Example Sentences and Phrases
+                <a ng-click="createNewPhrase()" ng-hide="!isEditing" class="btn btn-primary btn-xs pull-right"><i class="icon-plus"></i> Add new vocab</a>    
             </div>
 
             <!-- List group -->
-            <ul class="list-group">
-                <li ng-repeat="phrase in phrases" class="list-group-item">
-                    <input type="text" ng-hide="isEditing" ng-model="phrase.value"/>
-                    <input type="text" ng-hide="isEditing" ng-model="phrase.meaning"/>
-                    {{phrase.value}}
-                </li>
-            </ul>
+
+            <table class="table table-hover" ng-hide="isEditing">
+                <tbody>
+                    <tr ng-repeat="phrase in phrases">
+                        <td>
+                            <span>{{phrase.value}}</span><br/>
+                            <span>{{phrase.meaning}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover" ng-hide="!isEditing">
+                <tbody>
+                    <tr ng-repeat="phrase in phrases">
+                        <td>
+                            <a ng-click="removePhrase($index)"><i class="icon-remove"/> </a>
+                        </td>
+                        <td>
+                            <input type="text" ng-model="phrase.value" style="width:100%;"  /><br/><br/>
+                            <input type="text" ng-model="phrase.meaning" style="width:100%;" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
