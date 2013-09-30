@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html ng-app="clientApp">
-  <head>
-    <title>MaxKanji - Simple Kanji Reference</title>
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      <!--STYLES-->
-      <link rel="stylesheet" href="/linker/styles/bootstrap.css">
-      <!--STYLES END-->
-      <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-  </head>
+<head>
+  <title>MaxKanji - Simple Kanji Reference</title>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="/styles/bootstrap.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div ng-include="'/partials/header-nav.html'"></div>
-    <div class="container"  ng-view>
-    </div>
+<body>
+  <div ng-include="'/partials/header-nav.html'"></div>
+  
+  <div class="container" ng-view></div>
 
-
-
-    <!--SCRIPTS-->
-    <script src="/linker/js/socket.io.js"></script>
-    <script src="/linker/js/sails.io.js"></script>
-    <script src="/linker/js/jquery-1.10.2.js"></script>
-    <script src="/linker/js/angular.js"></script>
-    <script src="/linker/js/angular-route.js"></script>
-    <script src="/linker/js/bootstrap.js"></script>
-    <script src="/linker/js/clientapp/clientapp.js"></script>
-    <script src="/linker/js/clientapp/controllers/HomeCtrl.js"></script>
-    <script src="/linker/js/clientapp/controllers/KanjiDetails.js"></script>
-    <script src="/linker/js/clientapp/controllers/KanjiEdit.js"></script>
-    <script src="/linker/js/clientapp/services/kanjiService.js"></script>
-    <!--SCRIPTS END-->
-
-
-    </body>
+  <script src="/js/socket.io.js"></script>
+  <script src="/js/sails.io.js"></script>
+  <script src="/js/jquery-1.10.2.js"></script>
+  <script src="/js/angular.js"></script>
+  <script src="/js/angular-route.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/clientapp/clientapp.js"></script>
+  <script src="/js/clientapp/controllers/HomeCtrl.js"></script>
+  <script src="/js/clientapp/controllers/KanjiDetails.js"></script>
+  <script src="/js/clientapp/controllers/KanjiEdit.js"></script>
+  <script src="/js/clientapp/services/kanjiService.js"></script>
+  
+</body>
 </html>

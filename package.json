@@ -2,7 +2,7 @@
     "name": "maxkanji",
     "subdmain": "maxkanji",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.0-3",
     "description": "a Sails application",
     "dependencies": {
         "sails": "0.9.4",
@@ -20,5 +20,9 @@
     "main": "app.js",
     "repository": "",
     "author": "",
-    "license": ""
+    "license": "",
+    "subdomain": "maxkanji",
+    "engines": {
+        "node": "0.10.x"
+    }
 }
