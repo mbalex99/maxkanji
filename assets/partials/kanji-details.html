@@ -40,7 +40,7 @@
                 <tbody>
                     <tr ng-repeat="vocab in vocabs">
                         <td>
-                            <a ng-click="removeVocab($index)"><i class="icon-remove"/> </a>
+                            <a ng-click="removeVocab($index)" ng-hide="!isEditing"><i class="icon-remove"/> </a>
                         </td>
                         <td>
                             <input type="text" ng-model="vocab.value" ng-hide="!isEditing"/>
@@ -81,7 +81,7 @@
                 <tbody>
                     <tr ng-repeat="phrase in phrases">
                         <td>
-                            <a ng-click="removePhrase($index)"><i class="icon-remove"/> </a>
+                            <a ng-click="removePhrase($index)" ng-hide="!isEditing"><i class="icon-remove"/> </a>
                         </td>
                         <td>
                             <input type="text" ng-model="phrase.value" style="width:100%;"  /><br/><br/>

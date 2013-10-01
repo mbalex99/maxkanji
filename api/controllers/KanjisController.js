@@ -6,10 +6,7 @@ var Phrase = require('../../data/models/phrase');
 var Vocab = require('../../data/models/vocab');
 var Furigana = require('../../data/models/furigana');
 
-
-
 var KanjisController = {
-
     queryKanjis: function(req,res){
 
         var pageNumber = req.query.pageNumber || 1;
@@ -81,9 +78,7 @@ var KanjisController = {
         });
     },
     deleteKanji: function(req, res){
-
-	} 
-
+	}
 };
 
 module.exports = KanjisController;

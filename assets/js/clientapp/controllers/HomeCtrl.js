@@ -1,3 +1,3 @@
 ClientApp.Controllers.controller('HomeCtrl', ['$scope', function($scope){
-	$scope.message = "Hey everyonxe";
+	$scope.message = "Welcome to Max Kanji";
 }]);

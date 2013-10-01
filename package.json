@@ -13,7 +13,8 @@
         "waterline": "*",
         "sails-mongo": "*",
         "mongoose": "*",
-        "lodash": "*"
+        "lodash": "*",
+        "passport": "*"
     },
     "scripts": {
         "start": "node app.js",
