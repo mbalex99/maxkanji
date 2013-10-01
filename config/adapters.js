@@ -16,23 +16,12 @@ module.exports.adapters = {
 
   // If you leave the adapter config unspecified 
   // in a model definition, 'default' will be used.
-  'default': 'disk',
-
-  // In-memory adapter for DEVELOPMENT ONLY
-  memory: {
-    module: 'sails-memory'
-  },
-
-  // Persistent adapter for DEVELOPMENT ONLY
-  // (data IS preserved when the server shuts down)
-  disk: {
-    module: 'sails-disk'
-  },
+  'default': 'mongo',
 
   // MySQL is the world's most popular relational database.
   // Learn more: http://en.wikipedia.org/wiki/MySQL
   mongo: {
     module: 'sails-mongo',
-    url: 'mongodb://nodejitsu:ddd180dcb14f113ce0c1b331d1e96858@paulo.mongohq.com:10064/nodejitsudb6068077986'
+    url: 'mongodb://maxkanji:gBWQFO8cKrbb4rTYKVwzxjoNgeSw6oVAWUr_L2.wFo8-@ds027748.mongolab.com:27748/maxkanji'
   }
 };

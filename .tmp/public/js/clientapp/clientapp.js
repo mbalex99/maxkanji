@@ -20,6 +20,7 @@ angular.module('clientApp',
 	.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'})
-			.when('/kanji/:kanjiId', {templateUrl: 'partials/kanji-details.html', controller: 'KanjiDetailsCtrl'})
-			.when('/kanji/:kanjiId/edit', {templateUrl: 'partials/kanji-edit.html', controller: 'KanjiDetailsCtrl'});
+            .when('/kanji/list', {templateUrl: 'partials/kanji-list.html', controller: 'KanjiListCtrl'})
+			.when('/kanji/:id', {templateUrl: 'partials/kanji-details.html', controller: 'KanjiDetailsCtrl'})
+			.when('/kanji/new', {templateUrl: 'partials/kanji-list.html', controller: 'KanjiDetailsCtrl'});
 	}]);

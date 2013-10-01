@@ -1,9 +1,9 @@
-ClientApp.Services.factory('kanjiService', ['$q', '$http', function(){
+ClientApp.Services.factory('kanjiService', ['$q', '$http', function($q, $http){
 
 	var queryKanji = function(params){
 		var deferred = $q.defer();
 
-		$http({method: 'GET', url: '/kanjis', params: params}).success(function(data){
+		$http({method: 'GET', url: '/api/kanjis', params: params}).success(function(data){
 			deferred.resolve(data);
 		}).error(function(data){
 			deferred.reject(data);
@@ -15,7 +15,7 @@ ClientApp.Services.factory('kanjiService', ['$q', '$http', function(){
 	var getKanjiById = function(kanjiId){
 		var deferred = $q.defer();
 
-		$http({method: 'GET', url: '/kanjis/' + kanjiId}).success(function(data){
+		$http({method: 'GET', url: '/api/kanjis/' + kanjiId}).success(function(data){
 			deferred.resolve(data);
 		}).error(function(data){
 			deferred.reject(data);
@@ -26,20 +26,18 @@ ClientApp.Services.factory('kanjiService', ['$q', '$http', function(){
 
 	var saveKanji = function(kanjiId, payload){
 		var deferred = $q.defer();
-
-		$http({method: 'PUT', url: '/kanjis/' + kanjiId, data: payload}).success(function(data){
+		$http({method: 'PUT', url: '/api/kanjis/' + kanjiId, data: payload}).success(function(data){
 			deferred.resolve(data);
 		}).error(function(data){
 			deferred.reject(data);
 		});
-
 		return deferred.promise;
 	}
 
 	var deleteKanji = function(kanjiId){
 		var deferred  = $q.defer();
 
-		$http({method: 'DELETE', url: '/kanjis/' + kanjiId}).success(function(data){
+		$http({method: 'DELETE', url: '/api/kanjis/' + kanjiId}).success(function(data){
 			deferred.resolve(data);
 		}).error(function(data){
 			deferred.reject(data);
