@@ -1,1 +1,55 @@
-<h1>Welcome</h1>
+<!DOCTYPE html>
+<html ng-app="clientApp">
+<head>
+  <title>MaxKanji - Simple Kanji Reference</title>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="/styles/bootstrap.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '<%  %>',                        // App ID from the app dashboard
+      channelUrl : '//channel.html', // Channel file for x-domain comms
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/all.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div ng-include="'/partials/header-nav.html'"></div>
+
+<div class="container" ng-view></div>
+
+<script src="/js/socket.io.js"></script>
+<script src="/js/sails.io.js"></script>
+<script src="/js/jquery-1.10.2.js"></script>
+<script src="/js/angular.js"></script>
+<script src="/js/angular-route.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/clientapp/clientapp.js"></script>
+<script src="/js/clientapp/controllers/HomeCtrl.js"></script>
+<script src="/js/clientapp/controllers/LoginCtrl.js"></script>
+<script src="/js/clientapp/controllers/KanjiDetailsCtrl.js"></script>
+<script src="/js/clientapp/controllers/KanjiListCtrl.js"></script>
+<script src="/js/clientapp/services/kanjiService.js"></script>
+
+</body>
+</html>

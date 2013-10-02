@@ -32,7 +32,9 @@ module.exports.routes = {
   // located at `views/home/index.ejs`
   // 
   // (This would also work if you had a file at: `/views/home.ejs`)
-  '/': {
+  'get /': {
+    controller: 'home',
+    action: 'index',
     view: 'home/index'
   },
 
