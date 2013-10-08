@@ -1,17 +1,11 @@
 {
     "name": "maxkanji",
-    "subdmain": "maxkanji",
-    "private": true,
-    "version": "0.0.0-3",
-    "description": "a Sails application",
+    "description": "MaxKanji - Learn Kanji",
     "dependencies": {
-        "sails": "0.9.4",
+        "express": "*",
         "grunt": "0.4.1",
-        "sails-disk": "~0.9.0",
         "ejs": "0.8.4",
         "optimist": "0.3.4",
-        "waterline": "*",
-        "sails-mongo": "*",
         "mongoose": "*",
         "lodash": "*",
         "passport": "*"
@@ -21,9 +15,6 @@
         "debug": "node debug app.js"
     },
     "main": "app.js",
-    "repository": "",
-    "author": "",
-    "license": "",
     "subdomain": "maxkanji",
     "engines": {
         "node": "0.10.x"

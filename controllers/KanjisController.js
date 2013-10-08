@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var _ = require('lodash');
 
-var Kanji = require('../../data/models/kanji');
-var Phrase = require('../../data/models/phrase');
-var Vocab = require('../../data/models/vocab');
-var Furigana = require('../../data/models/furigana');
+var Kanji = require('../data/models/kanji');
+var Phrase = require('../data/models/phrase');
+var Vocab = require('../data/models/vocab');
+var Furigana = require('../data/models/furigana');
 
 var KanjisController = {
     queryKanjis: function(req,res){
