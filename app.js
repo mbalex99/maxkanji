@@ -23,7 +23,19 @@ app.configure(function(){
 
 var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI || "mongodb://maxkanji:gBWQFO8cKrbb4rTYKVwzxjoNgeSw6oVAWUr_L2.wFo8-@ds027748.mongolab.com:27748/maxkanji";
 
-mongoose.connect(connectionString);
+var connectWithRetry = function(){
+	return mongoose.connect(connectionString, function(err){
+		if(err){
+			console.error('Failed to connect to mongo on startup retrying in 5 seconds', err);
+			setTimeout(connectWithRetry, 5000);
+		}
+		
+	});
+};
+
+connectWithRetry();
+
+
 
 app.configure('development', function(){ app.use(express.errorHandler()); });
 
@@ -32,3 +44,5 @@ routeConfig.run(app);
 app.listen(app.get('port'));
 
 console.log('Started Node Server on ' +  app.get('port'));
+
+module.exports = app;
