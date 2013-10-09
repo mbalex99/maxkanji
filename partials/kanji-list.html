@@ -1,27 +1,29 @@
-<div class="row">
-    <div class="col-md-12">
-        <h3>Kanji List</h3>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Character</th>
-                    <th>Meaning</th>
-                    <th>音読み</th>
-                    <th>訓読み</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="kanji in kanjis">
-                    <td>
-                        <a ng-href="#/kanji/{{kanji._id}}">
-                            {{kanji.character}}
-                        </a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Kanji List</h3>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Meaning</th>
+                        <th>音読み</th>
+                        <th>訓読み</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="kanji in kanjis">
+                        <td>
+                            <a ng-href="#/kanji/{{kanji._id}}">
+                                {{kanji.character}}
+                            </a>
                         </td>
-                    <td>{{kanji.meaning}}</td>
-                    <td>{{kanji.onYomi}}</td>
-                    <td>{{kanji.kunYomi}}</td>
-                </tr>
-            </tbody>
-        </table>
+                        <td>{{kanji.meaning}}</td>
+                        <td>{{kanji.onYomi}}</td>
+                        <td>{{kanji.kunYomi}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
