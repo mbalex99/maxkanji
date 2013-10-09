@@ -1,3 +1,9 @@
 body h1, h2, h3, p{ 
 	font-family: 'Roboto Slab', serif;
 }
+
+
+.shoutbox
+{
+	padding: 40px 20px 40px;
+}

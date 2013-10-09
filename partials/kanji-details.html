@@ -17,7 +17,7 @@
                     <li class="list-group-item">訓読み: <input type="text" ng-model="kunYomi"ng-hide="!isEditing"/> <span ng-hide="isEditing">{{kunYomi}}</span> </li>
                 </ul>
                 <a class="btn btn-success btn-sm" ng-hide="!isEditing" ng-click="saveChanges()"><i class="icon-save"></i>&nbsp;Save Changes</a>
-                <a class="btn bnt-default btn-sm" ng-hide="isEditing" ng-click="beginEditing()"><i class="icon-pencil"></i>&nbsp;Edit</a>
+                <a ng-hide="!isCanEdit" class="btn bnt-default btn-sm" ng-hide="isEditing" ng-click="beginEditing()"><i class="icon-pencil"></i>&nbsp;Edit</a>
                 <br/>
             </div>
         </div>

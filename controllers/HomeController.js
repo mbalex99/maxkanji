@@ -1,9 +1,9 @@
-
+var app = require('../app');
 
 var HomeController = {
 	index: function(req, res){
-		console.log('hey');
-        res.render('index.ejs');
+		var facebookId = process.env.FACEBOOKID || '206314096207870';
+        res.render('index.ejs', {facebookId: facebookId});
 	}
 	
 };
