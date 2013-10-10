@@ -7,3 +7,9 @@ body h1, h2, h3, p{
 {
 	padding: 40px 20px 40px;
 }
+
+.modal {
+	display: block;
+	height: 0;
+	overflow: visible;
+}

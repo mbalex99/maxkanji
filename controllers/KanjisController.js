@@ -16,6 +16,25 @@ var KanjisController = {
             res.send(docs);
         });
 	},
+    getKanjiByCharacter: function(req, res){
+        var character = req.param('character');
+
+        Kanji.findOne({character: character}, function(err, doc){
+            if(err){
+                res.send(500);
+                console.log('Some error occured ' + err);
+            }
+
+            if(doc){
+                res.send(doc);
+            }
+            else
+            {
+                res.send(404);
+                console.log('No kanji was found');
+            }
+        })
+    },
     getKanjiById: function(req, res){
         var id = mongoose.Types.ObjectId( req.param('id'));
 

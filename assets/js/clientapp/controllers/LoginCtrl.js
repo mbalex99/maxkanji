@@ -11,4 +11,14 @@ ClientApp.Controllers.controller('LoginCtrl', ['$scope', '$http', '$location', f
 			}
 		});
 	};
+
+	$scope.fetchStatus = function(){
+		FB.getLoginStatus(function(response){
+			if(response.status === 'connected'){
+				$location.path('/');
+			}
+		});
+	};
+
+	$scope.fetchStatus();
 }]);

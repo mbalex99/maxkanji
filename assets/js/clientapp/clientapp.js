@@ -16,7 +16,7 @@ ClientApp.Filters = angular.module('clientApp.filters', []);
 ClientApp.Directives = angular.module('clientApp.directives', []);
 
 angular.module('clientApp',
-	['clientApp.constants', 'clientApp.services', 'clientApp.controllers', 'clientApp.filters', 'clientApp.directives', 'ngRoute'])
+	['clientApp.constants', 'clientApp.services', 'clientApp.controllers', 'clientApp.filters', 'clientApp.directives', 'ngRoute', 'ui.bootstrap'])
 	.config(['$routeProvider', function($routeProvider){
 
 		$routeProvider

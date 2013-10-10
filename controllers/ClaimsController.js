@@ -6,8 +6,12 @@ var ClaimsController = {
 
     	http.request('https://graph.facebook.com/me?accessToken='+accessToken, function(response){
     		response.on('data', function(chunk){
-
+    			res.send(chunk);
     		});
     	});
+
+
     }
-}
+};
+
+module.exports = ClaimsController;

@@ -16,6 +16,7 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
+	app.use('/template', express.static(path.join(__dirname, '/template')));
 	app.use('/assets', express.static(path.join(__dirname, '/assets')));
 	app.use('/partials', express.static(path.join(__dirname, '/partials')));
 
@@ -31,7 +32,17 @@ options.server.socketOptions = options.replset.socketOptions = { keepAlive: 1 };
 
 var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI || "mongodb://maxkanji:gBWQFO8cKrbb4rTYKVwzxjoNgeSw6oVAWUr_L2.wFo8-@ds027748.mongolab.com:27748/maxkanji";
 
-mongoose.connect(connectionString, options);
+
+var connectWithRetry = function() {
+	return mongoose.connect(connectionString, options, function(err){
+		if(err){
+			console.log("Failed to connect to mongo on startup - retrying in 5 seconds " + err);
+			setTimeout(connectWithRetry, 5000);
+		}
+	})
+}
+connectWithRetry();
+//mongoose.connect(connectionString, options);
 
 
 

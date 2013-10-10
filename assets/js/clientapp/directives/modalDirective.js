@@ -1,0 +1,1 @@
+ClientApp.Controllers.directive('modal', ['$scope'])
