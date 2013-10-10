@@ -21,19 +21,17 @@ app.configure(function(){
 
 });
 
-var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI || "mongodb://maxkanji:gBWQFO8cKrbb4rTYKVwzxjoNgeSw6oVAWUr_L2.wFo8-@ds027748.mongolab.com:27748/maxkanji";
-
-var connectWithRetry = function(){
-	return mongoose.connect(connectionString, function(err){
-		if(err){
-			console.error('Failed to connect to mongo on startup retrying in 5 seconds', err);
-			setTimeout(connectWithRetry, 5000);
-		}
-		
-	});
+var options = {
+	db: {native_parser: true},
+	server: {poolSize: 5},
+	replset: {rs_name: 'myReplicaSetName'},
 };
 
-connectWithRetry();
+options.server.socketOptions = options.replset.socketOptions = { keepAlive: 1 };
+
+var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI || "mongodb://maxkanji:gBWQFO8cKrbb4rTYKVwzxjoNgeSw6oVAWUr_L2.wFo8-@ds027748.mongolab.com:27748/maxkanji";
+
+mongoose.connect(connectionString, options);
 
 
 
