@@ -8,7 +8,7 @@ module.exports = {
 		app.get('/', homeController.index);
 		app.get('/api/kanjis', kanjisController.queryKanjis);
 		app.get('/api/kanjis/:id', kanjisController.getKanjiById);
-		app.get('/api/kanjis?character=:character', kanjisController.getKanjiByCharacter);
+		app.get('/api/kanjis/character/:character', kanjisController.getKanjiByCharacter);
 		app.get('/api/claims/', claimsController.getClaims);
 	}
 };

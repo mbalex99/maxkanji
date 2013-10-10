@@ -50,23 +50,23 @@ ClientApp.Controllers.controller('KanjiDetailsCtrl', ['$scope', '$routeParams', 
   }).error(function(data){
     alert('there was an error saving your data');
   });
-
 };
 
-$scope.fetch = function(){
-
-  FB.getLoginStatus(function(response){
+$scope.getLoginStatus = function(){
+    FB.getLoginStatus(function(response){
 
     if(response.status === 'connected'){
       $scope.isCanEdit = true;
       console.log('can edit');
     }else{
       console.log('cannot edit');
-      $scope.isCanEdit = true;
+      $scope.isCanEdit = false;
 
     }
   });
+};
 
+$scope.fetch = function(){
   $http.get('/api/kanjis/' +  $routeParams.id).success(function(data){
     $scope.character = data.character;
     $scope.meaning = data.character;
@@ -79,8 +79,14 @@ $scope.fetch = function(){
   });
 };
 
-if($routeParams.id != "new"){
+if($routeParams.id){
   $scope.fetch();
 }
+
+if($routeParams.character){
+  $scope.character = decodeURIComponent($routeParams.character);
+}
+
+$scope.getLoginStatus();
 
 }]);

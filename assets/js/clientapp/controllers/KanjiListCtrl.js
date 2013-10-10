@@ -1,5 +1,5 @@
 'use strict';
-ClientApp.Controllers.controller('KanjiListCtrl', ['$http', '$scope', '$modal', '$log', function($http, $scope, $modal, $log){
+ClientApp.Controllers.controller('KanjiListCtrl', ['$http', '$scope', '$modal', '$log', '$location', function($http, $scope, $modal, $log, $location){
 
     $scope.pageNumber = 1;
     $scope.pageSize = 50;
@@ -11,11 +11,11 @@ ClientApp.Controllers.controller('KanjiListCtrl', ['$http', '$scope', '$modal', 
             templateUrl: 'partials/new-kanji-modal.html',
             controller: 'NewKanjiModelCtrl'
         });
-        modalInstance.result.then(function (selectedItem) {
-          $scope.selected = selectedItem;
-      }, function () {
+        modalInstance.result.then(function (character) {
+          $location.path('/kanji/new/' + character); 
+        }, function () {
           $log.info('Modal dismissed at: ' + new Date());
-      });
+        });
     };
 
     $scope.fetch = function(){

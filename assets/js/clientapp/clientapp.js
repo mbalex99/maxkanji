@@ -24,5 +24,5 @@ angular.module('clientApp',
 			.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'})
             .when('/kanji/list', {templateUrl: 'partials/kanji-list.html', controller: 'KanjiListCtrl'})
 			.when('/kanji/:id', {templateUrl: 'partials/kanji-details.html', controller: 'KanjiDetailsCtrl'})
-			.when('/kanji/new', {templateUrl: 'partials/kanji-list.html', controller: 'KanjiDetailsCtrl'});
+			.when('/kanji/new/:character', {templateUrl: 'partials/kanji-details.html', controller: 'KanjiDetailsCtrl'});
 	}]);
