@@ -38,7 +38,7 @@ ClientApp.Controllers.controller('KanjiDetailsCtrl', ['$scope', '$routeParams', 
   $scope.saveChanges = function(){
     var modelToSave = {
      character: $scope.character,
-     meaning: $scope.meaning,
+     meaning: $scope.meaning || "",
      onYomi: $scope.onYomi,
      kunYomi: $scope.kunYomi,
      vocabs: $scope.vocabs,
@@ -69,7 +69,7 @@ $scope.getLoginStatus = function(){
 $scope.fetch = function(){
   $http.get('/api/kanjis/' +  $routeParams.id).success(function(data){
     $scope.character = data.character;
-    $scope.meaning = data.character;
+    $scope.meaning = data.meaning;
     $scope.onYomi = data.onYomi;
     $scope.kunYomi = data.kunYomi;
     $scope.vocabs = data.vocabs;

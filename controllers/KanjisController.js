@@ -53,6 +53,11 @@ var KanjisController = {
 	},
     saveKanji: function(req, res){
 
+        if(!$scope.character){
+            alert('character cannot be empty!');
+        }
+
+
         var vocabs = _.map(req.body.vocabs, function(vocab){
             return new Vocab({
                 meaning: vocab.meaning,
@@ -81,13 +86,13 @@ var KanjisController = {
         Kanji.update({character: req.body.character}, {$set: {
             character: req.body.character,
             onYomi: req.body.onYomi,
-            kunYomi: req.body.kunYomi,
-            meaning: req.body.meaning,
+            kunYomi: req.body.kunYomi || "",
+            meaning: req.body.meaning || "",
             vocabs: vocabs,
             phrases: phrases
         }}, {upsert: true}, function(err, doc){
             if(err){
-                res.send(err)
+                res.send(err, 400);
             }else
             {
                 Kanji.findOne({character: req.body.character}, function(err, doc){
