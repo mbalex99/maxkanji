@@ -1,10 +1,4 @@
-/**
- * Created with JetBrains WebStorm.
- * User: malexander
- * Date: 9/27/13
- * Time: 3:09 AM
- * To change this template use File | Settings | File Templates.
- */
+
 
 var ClientApp = ClientApp || {};
 

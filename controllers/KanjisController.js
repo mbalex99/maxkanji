@@ -12,9 +12,10 @@ var KanjisController = {
         var pageNumber = req.query.pageNumber || 1;
         var pageSize = req.query.pageSize || 50;
 
+
         Kanji.find({}, function(err, docs){
             res.send(docs);
-        });
+        }).;
 	},
     getKanjiByCharacter: function(req, res){
         var character = req.param('character');
@@ -52,10 +53,6 @@ var KanjisController = {
 
 	},
     saveKanji: function(req, res){
-
-        if(!$scope.character){
-            alert('character cannot be empty!');
-        }
 
 
         var vocabs = _.map(req.body.vocabs, function(vocab){

@@ -2,6 +2,14 @@ body h1, h2, h3, p{
 	font-family: 'Roboto Slab', serif;
 }
 
+.navbar-brand a{
+	color: #FFF;
+}
+
+.navbar-inverse{
+	background-color :#2b3035;
+	color: ; #FFF;
+}
 
 .shoutbox
 {
