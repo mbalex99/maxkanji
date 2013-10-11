@@ -15,7 +15,7 @@ var KanjisController = {
 
         Kanji.find({}, function(err, docs){
             res.send(docs);
-        }).;
+        });
 	},
     getKanjiByCharacter: function(req, res){
         var character = req.param('character');
