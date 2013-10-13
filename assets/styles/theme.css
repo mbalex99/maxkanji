@@ -1,3 +1,7 @@
+body {
+	background-color: #E8E8E8;
+}
+
 body h1, h2, h3, p{ 
 	font-family: 'Roboto Slab', serif;
 }
@@ -7,13 +11,15 @@ body h1, h2, h3, p{
 }
 
 .navbar-inverse{
-	background-color :#2b3035;
-	color: ; #FFF;
+	background-color :#3A3028;
+	color:  #FFF;
+	margin-bottom: 0px;
 }
 
 .shoutbox
 {
 	padding: 40px 20px 40px;
+	background-color: #F9CDAD;
 }
 
 .modal {

@@ -52,6 +52,14 @@ var KanjisController = {
         });
 
 	},
+    getRandomKanji: function(req, res){
+        Kanji.findRandom(function(err, doc){
+            if(err){
+                res.send(err, 500);
+            }
+            res.send(doc);
+        });
+    },
     saveKanji: function(req, res){
 
 

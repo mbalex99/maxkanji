@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var random = require('mongoose-random');
 var Schema = mongoose.Schema;
 
 var vocabSchema = require('../schemas/vocabSchema');
@@ -13,5 +14,7 @@ var kanjiSchema = new Schema({
     vocabs: [vocabSchema],
     phrases: [phraseSchema]
 });
+
+kanjiSchema.plugin(random());
 
 module.exports = kanjiSchema;
