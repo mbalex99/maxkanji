@@ -37,11 +37,15 @@
  }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div ng-include="'/partials/sidebar-nav.html'"></div>
+<div id="wrapper">
 
-<div ng-view class="main-content" id="page-content-wrapper"></div>
+    <div ng-include="'/partials/sidebar-nav.html'"></div>
+    
+    <div ng-view class="main-content" id="page-content-wrapper"></div>
+    
+    <div ng-include="'/partials/footer.html'"></div>
 
-<div ng-include="'/partials/footer.html'"></div>
+</div>
 
 <script src="assets/js/socket.io.js"></script>
 <script src="assets/js/jquery-1.10.2.js"></script>
